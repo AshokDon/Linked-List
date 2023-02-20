@@ -9,7 +9,9 @@ void TakeInput(){
 }
 
 class LinkedList{
-    struct  Node{
+public:
+    struct Node
+    {
         int data;
         Node *next;
         Node(int val){
@@ -17,35 +19,56 @@ class LinkedList{
             next = NULL;
         }
     };
-    
     Node *head;
-public:
+    Node *tail;
     LinkedList(){
         head = NULL;
+        tail = NULL;
     }
-    void InsertNode(int data){
-        Node *newNode = new Node(data);
-        if(head == NULL){
+    void Insert(int x){
+        //creat a new node 30,NULL
+        Node *newNode = new Node(x);
+        if(head==NULL){
             head = newNode;
+            tail = newNode
             return;
         }
-        Node *temp = head;
-        while(temp->next!=NULL){
-            temp=temp->next;
-        }
-        temp->next = newNode;
+        tail->next = newNode;
+        tail = tail->next;
     }
-    void de
+    void Printdata(){
+        Node *temp = head;
+        while(temp){
+            cout<<temp->data<<" ";
+            temp = temp->next;
+        }
+    }
+    void InsertAtBegin(int x){
+        //fill this fuction
+
+    }
+    void InsertAtEnd(int x){
+        //fill this fuction
+    }
+    void InsertAtPosition(int x,int pos){
+        //fill this function
+    }
 
 };
-int main()
-{
+int main(){
     TakeInput();
-    Node *head = new Node(10);
-    Node *first = new Node(20);
-    Node *second = new Node(30);
-    head->next = first;
-    first->next = second;
-    PrintList(head);
+    LinkedList list;
+    list.Insert(10);
+    list.Insert(20);
+    list.Insert(30);
+    //insert at begin
+    //insert at end 
+    //insert in middle
+
+    list.Printdata();
 
 }
+
+
+
+
