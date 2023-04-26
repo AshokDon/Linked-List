@@ -12,9 +12,13 @@ public:
 
     int data;
     Node* next;
-    Node(int val){
-        data = val;
+    Node(){
+        data = 0;
         next = NULL;
+    }
+    Node(int val){
+        this->data = val;
+        this->next = NULL;
     }
 
 };
@@ -32,18 +36,26 @@ public:
         }
         else{
             Node* temp1 = head;
-            while(temp1){
+            while(temp1->next!=NULL){
                 temp1=temp1->next;
             }
             temp1->next=temp;
+        }
+    }
+    void print(){
+        Node *temp = head;
+        while(temp){
+            cout<<temp->data<<" ";
+            temp=temp->next;
         }
     }
 };
 int main(){
     TakeInput();
     LinkedList list;
-    list.insert(10);
+     list.insert(10);
     list.insert(20);
+    list.print();
 
 }
 
