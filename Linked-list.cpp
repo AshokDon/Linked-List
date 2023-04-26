@@ -1,45 +1,50 @@
-#include<stdio.h>
-#include<stdlib.h>
-struct Node{
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+void TakeInput(){
+    #ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    #endif
+}
+class Node{
+public:
+
     int data;
-    struct Node *next;
+    Node* next;
+    Node(int val){
+        data = val;
+        next = NULL;
+    }
+
 };
-struct Node *head = NULL;
-struct Node *tail = NULL;
-struct Node *Creat_A_NewNode(int val){
-    struct Node *nn = (struct Node*)malloc(sizeof(struct Node));
-    nn->data = val;
-    nn->next = NULL;
-    return nn;
-}
-void PrintALinkedList(struct Node *head){
-    struct Node *temp = head;
-    while(temp!=NULL){
-        printf("%d ",temp->data);
-        temp = temp->next;
+class LinkedList{
+    Node *head;
+public:
+
+    LinkedList(){
+        head = NULL;
     }
-}
-void Creat_A_LInked_List(int val){
-    struct Node* nn = Creat_A_NewNode(val);
-    if(head == NULL){
-       // printf("hi");
-        head = nn;
-        tail = nn;
-        
+    void insert(int val){
+        Node *temp = new Node(val);
+        if(head==NULL){
+            head = temp;
+        }
+        else{
+            Node* temp1 = head;
+            while(temp1){
+                temp1=temp1->next;
+            }
+            temp1->next=temp;
+        }
     }
-    else{
-        tail->next = nn;
-        tail = tail->next;
-    }
-    
-    
-}
+};
 int main(){
-    for(int i = 0 ; i < 5 ; i++){
-        int val;
-        scanf("%d",&val);
-        Creat_A_LInked_List(val);
-    }
-    PrintALinkedList(head);
-    
+    TakeInput();
+    LinkedList list;
+    list.insert(10);
+    list.insert(20);
+
 }
+
+
