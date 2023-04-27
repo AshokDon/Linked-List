@@ -55,6 +55,7 @@ class LikedList{
     void Add_At_Middle(int l , int r, int val){
         //[1,2,3,5,6,7,8]
         //     t    
+        Node *nn = new Node(val);
         Node* temp = head;
         Node* n1;
         Node* n2;
@@ -88,6 +89,7 @@ int main(){
        cin >>x;
        list.Insert(x);
    }
+   list.Add_At_Front(2);
    list.Dispaly();
    
 }
