@@ -37,6 +37,36 @@ class LikedList{
             temp = temp->next;
         }
     }
+    void Add_At_Front(int val){
+        Node *nn = new Node(val);
+        if(head==NULL){
+            head = nn;
+        }
+        else{
+            nn->next = head;
+            head = nn;
+        }
+    }
+    void Add_At_End(int val){
+        Node *nn = new Node(val);
+        tail->next = nn;
+        tail = nn;
+    }
+    void Add_At_Middle(int l , int r, int val){
+        //[1,2,3,5,6,7,8]
+        //     t    
+        Node* temp = head;
+        Node* n1;
+        Node* n2;
+        while(temp->data!=l){
+            temp = temp->next;
+        }
+        n1 = temp;
+        n2 = temp->next;
+        n1->next = nn;
+        nn->next = n2;
+        
+    }
     void Delete_At_Front(){
         
     }
