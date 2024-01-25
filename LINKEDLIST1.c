@@ -29,3 +29,43 @@ int main(){
     third->next = NULL;
     
 }
+
+//======================================================== Optimized code for linked List ===============================================================//
+
+//linkedlist creation
+#include<stdio.h>
+#include<stdlib.h>
+
+struct Node{
+    int data;
+    struct Node *next;
+};
+struct Node *head = NULL;
+struct Node *tail = NULL;
+void InsertintoLinkedList(int val){
+    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+    newNode->data = val;
+    newNode->next = NULL;
+    if(head == NULL){
+        head = newNode;
+        tail = newNode;
+    }
+    else{
+        tail->next = newNode;
+        tail = newNode;
+    }
+}
+int main(){
+    //length of linkedlist
+    int n;
+    //given n values
+    scanf("%d",&n); // 5
+    //10 20 30 40 50
+    for(int i = 0 ; i < n ; i++){
+        int val;
+        scanf("%d",&val);//10 20
+        InsertintoLinkedList(val);//20
+    }
+
+
+}
